@@ -16,14 +16,16 @@ const NavBar = () => {
     ];
 
     return (
-        <nav>
+        <nav className="text-black bg-gray-200 ">
             <div className="md:hidden" onClick={() => setOpen(!open)}>
                 {
-                    open === true ? <MdMenuOpen className="text-2xl "></MdMenuOpen > : <MdOutlineRestaurantMenu  className="text-2xl "></MdOutlineRestaurantMenu  >
+                    open === true ? <MdOutlineRestaurantMenu  className="text-2xl "></MdOutlineRestaurantMenu  > : <MdMenuOpen className="text-2xl "></MdMenuOpen >
                 }
-            
+                {/* ${open ? '': 'hidden'} */}
             </div>
-            <ul className="md:flex">
+            <ul className={`md:flex absolute duration-1000 
+            ${open ? 'top-7': '-top-60'}
+             bg-gray-200 rounded-lg p-2 shadow-lg md:shadow-none md:top-0`}>
                 {routes.map(route => (
                     <Link key={route.id} route={route} />
                 ))}
